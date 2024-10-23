@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hygea Medical Lab</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
+    <style>
+   /* Global Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header-topbar {
+    background-color: darkblue;
+    padding: 0;
+}
+
+/* Contact List Styles */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.contact-list li {
+    padding: 3px 0;
+}
+
+.contact-list li i {
+    margin-right: 10px;
+    color: red;
+}
+
+.contact-list li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Phone List Styles */
+.phone-list {
+    background-color: #080818;
+    padding: 3px;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border: 2px solid white;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 100px;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.nav-item {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.nav-item-link {
+    color: blue;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-item-link:hover {
+    color: darkblue;
+}
+
+/* Dropdown Menu */
+.nav-item {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    list-style-type: none;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    padding: 8px 16px;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Login Button Styles */
+.login-btn {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.login-btn i {
+    margin-right: 5px;
+}
+
+.login-btn:hover {
+    background-color: darkblue;
+}
+
+/* Body Section Styling */
+.body-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Image Styling */
+.body-image {
+    width: 856px;
+    height: auto;
+    border-radius: 16px 0 0 0;
+}
+
+/* Content Styling */
+.body-content {
+    max-width: 500px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Heading Styling */
+.body-heading {
+    font-size: 32px;
+    color: darkblue;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.body-btn {
+    background-color: #FFFFFF;
+    color: darkblue;
+    padding: 15px 30px;
+    border: 0.98px solid #E51D1D;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.body-btn:hover {
+    background-color: #E51D1D;
+    color: white;
+}
+
+/* Image Button Styles */
+.image-button {
+    display: inline-block;
+    width: 155px;
+    height: 50px;
+    margin: 10px 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-button img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.image-button img:hover {
+    transform: scale(1.05);
+}
+
+/* Button Container */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.image-button {
+    width: 100%;
+}
+
+.image-button img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .body-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .body-image,
+    .body-content {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-btn {
+        margin-top: 10px;
+    }
+
+    .image-button {
+        width: 80px;
+        height: 40px;
+    }
+}
+
+/* Vision Section Layout */
+.vision-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.vision-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 30px;
+}
+
+.vision-content {
+    max-width: 600px;
+    text-align: left;
+}
+
+.vision-heading {
+    font-size: 32px;
+    color: darkblue;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.vision-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 0;
+}
+
+/* mission */
+
+/* Mission Section Layout */
+.mission-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+/* Mission Image on Left */
+.mission-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 30px; /* Ensure the margin is applied to the right */
+}
+
+.mission-content {
+    max-width: 600px;
+    text-align: left;
+}
+
+.mission-heading {
+    font-size: 32px;
+    color: darkblue;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.mission-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 0;
+}
+
+
+/* Fixed Image Container */
+.fixed-image-container {
+    position: relative;
+    width: 1245px;
+    height: 342px;
+    margin: 46px auto;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.fixed-image-container img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Our Branches Section */
+.branches-section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px 0;
+    text-align: center; /* Center align the entire section */
+}
+
+.branches-heading {
+    margin-bottom: 30px;
+}
+
+.branches-heading img {
+    max-width: 20%; /* Adjust the size of the heading image */
+    height: auto;
+}
+
+/* Scrollable Branches Grid */
+.branches-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Horizontal scrolling */
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory; /* Snap scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.branch-item {
+    flex: 0 0 calc(25% - 20px); /* Four items per row */
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Center align text for branch names */
+    scroll-snap-align: start; /* Snap to start of each item */
+}
+
+.branch-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.branch-item h3 {
+    font-size: 20px;
+    color: darkblue;
+    margin-bottom: 10px;
+    text-align: center; /* Center align the branch name */
+}
+
+.branch-item p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: flex; /* Use flexbox for icon and text alignment */
+    align-items: center; /* Center the icon vertically with the text */
+    justify-content: center; /* Center align the address and phone number text */
+    gap: 8px; /* Add space between the icon and text */
+}
+
+.branch-item i {
+    color: darkblue; /* Change icon color to match the text */
+}
+
+/* Add Scrollbar Styles */
+.branches-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.branches-grid::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.branches-grid::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .branch-item {
+        flex: 0 0 calc(50% - 20px); /* Two items per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .branch-item {
+        flex: 0 0 100%; /* Full width on extra small screens */
+    }
+}
+
+
+    </style>
+    
+</head>
+<body>
+
+<header class="header header-layout1">
+    <div class="header-topbar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <ul class="contact-list">
+                            <li>
+                                <i class="bi bi-geo-alt"></i><strong>Location:</strong> Sreelakshmi Building, Shornur Road, Thiruvambadi P.O, Thrissur, Kerala, Pin: 680022 | 
+                                <i class="bi bi-clock"></i><strong>Monday to Saturday:</strong> 24/7 | 
+                                <i class="bi bi-clock"></i><strong>Sunday:</strong> 6:00 AM - 2:00 PM
+                            </li>
+                        </ul>
+
+                        <ul class="contact-list phone-list">
+                            <li>
+                                <i class="bi bi-telephone"></i><strong>Phone:</strong> 
+<a href="tel:+914872224170">0487 2224170</a> | 
+<a href="tel:+914872332100">0487 2332100</a>&nbsp;&nbsp;
+
+                                <i class="bi bi-envelope"></i><strong>Email:</strong> <a href="mailto:hygeamedicallab@gmail.com">hygeamedicallab@gmail.com</a> |&nbsp;
+                                <i class="bi bi-whatsapp" style="color: green;"></i><strong>WhatsApp:</strong> <a href="https://wa.me/+919020992499" style="color: green;">+91 9020992499</a>
+                            </li>
+                        </ul>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <img src="images/logo copy.png" alt="Hygea Medical Lab">
+        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="#" class="nav-item-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-item-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-item-link">Health Packages</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-item-link">Our Departments</a>
+                <ul class="dropdown">
+                    <li><a href="#">Echo TMT Scanning</a></li>
+                    <li><a href="#">Ultra Sound Scanning</a></li>
+                    <li><a href="#">X-Ray Scanning</a></li>
+                    <li><a href="#">Blood Test</a></li>
+                    <li><a href="#">Home Collection</a></li>
+                </ul>
+            </li>
+            
+            <li class="nav-item">
+                <a href="#" class="nav-item-link">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-item-link">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-item-link">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="login-btn"><i class="bi bi-person-circle"></i>Login</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Body Section -->
+<section class="body-section">
+    <img src="images/Component 11.png" alt="Main Image" class="body-image">
+    <div class="body-content">
+     
+        <a href="#book-visit-section" class="body-btn" style="display: block; text-align: center;">Book Now</a> <!-- Book Now button positioned here -->
+
+        
+        <div class="button-container">
+            <div class="image-button">
+                <img src="images/echo-tmt.png" alt="Button 1">
+            </div>
+            <div class="image-button">
+                <img src="images/ultra.png" alt="Button 2">
+            </div>
+            <div class="image-button">
+                <img src="images/ xray-scanning (1).png" alt="Button 3">
+            </div>
+            <div class="image-button">
+                <img src="images/blood.png" alt="Button 4">
+            </div>
+            <div class="image-button">
+                <img src="images/home.png" alt="Button 5">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision Section -->
+<section class="vision-section">
+    <div class="vision-image">
+        <img src="images/ourvision.png" alt="Vision Image">
+    </div>
+    <div class="vision-content">
+        <div class="vision-heading" style="text-align: center; margin-bottom: 20px;">
+            <img src="images/Our vision.png" alt="Our Vision" style="max-width: 25%; height: auto;">
+        </div>
+        
+        <p>To be the leading medical lab in the region, providing accurate and timely testing services for our community.</p>
+    </div>
+</section>
+
+<section class="mission-section">
+    <div class="mission-image">
+        <img src="images/Group 427319052.png" alt="Mission Image">
+    </div>
+    <div class="mission-content">
+        <div class="mission-heading" style="text-align: center; margin-bottom: 20px;">
+            <img src="images/Heading 3 → Our vision.png" alt="Our Mission" style="max-width: 25%; height: auto;">
+        </div>
+        <p>To deliver exceptional healthcare testing services with precision, efficiency, and compassion, ensuring the well-being of our community.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="fixed-image-container">
+    <img src="images/Frame 23.png" alt="Fixed Image">
+</section>
+<br>
+<br>
+<section class="fixed-image-container">
+    <a href="">
+        <img src="images/Frame 77.png" alt="Fixed Image">
+    </a>
+</section>
+
+<br>
+<br>
+<section class="fixed-image-container">
+    <img src="images/Frame 427319073.png" alt="Fixed Image" style="width: 970px; height: auto;">
+</section>
+<br>
+<br>
+
+
+
+<section class="branches-section">
+    <div class="branches-heading">
+        <img src="images/Heading 3 → Our Branches.png" alt="Our Branches">
+    </div>
+    
+    <div class="branches-grid">
+        <!-- Branch items -->
+        <div class="branch-item">
+            <img src="images/kechery.png" alt="Kechery Branch">
+            <h3>Kechery</h3>
+            <p><i class="bi bi-geo-alt" style="color: darkblue;"></i> Address: Building No. 502 A, Ward No. 7, Opp Indian Oil Petrol Pump, Velur Chungam - 680601 PO Velur</p>
+            <p><i class="bi bi-telephone" style="color: darkblue;"></i> Phone: <a href="tel:+919778425843">97784 25843</a></p>
+        </div>
+        
+        <div class="branch-item">
+            <img src="images/Hygea Cherror.png" alt="Cheroor Branch">
+            <h3>Cheroor</h3>
+            <p><i class="bi bi-geo-alt" style="color: darkblue;"></i> Address: Ramavarampuram Round, Near Kinar, Koorkenchery, Cheroor, Thrissur, Kerala - 680008</p>
+            <p><i class="bi bi-telephone" style="color: darkblue;"></i> Phone: <a href="tel:+918590222698">85902 22698</a></p>
+        </div>
+        
+        <div class="branch-item">
+            <img src="images/muliyam.png" alt="Mupliyam Branch">
+            <h3>Mupliyam</h3>
+            <p><i class="bi bi-geo-alt" style="color: darkblue;"></i> Address: Near GHS School, Mupliyam, Kerala - 680312</p>
+            <p><i class="bi bi-telephone" style="color: darkblue;"></i> Phone: <a href="tel:+918590222698">85902 22698</a></p>
+        </div>
+        
+        <div class="branch-item">
+            <img src="images/pullur.png" alt="Pullur Branch">
+            <h3>Pullur</h3>
+            <p><i class="bi bi-geo-alt" style="color: darkblue;"></i> Address: Opp St. Xavier's CMI School, Irinjalakuda, Pullur, Kerala - 680683</p>
+            <p><i class="bi bi-telephone" style="color: darkblue;"></i> Phone: <a href="tel:+918590222698">85902 22698</a></p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- 
+<section class="fixed-image-container">
+    <img src="images/Group 43.png" alt="Fixed Image" style="width: 903px; height: auto;">
+</section> -->
+
+
+
+
+<section class="fixed-image-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+    <!-- Frame 74 Image -->
+    <img src="images/Frame 74.png" alt="Fixed Image" style="width: 100%;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>  
+     <br>   
+     <br>
+    <br>   
+    <br>
+
+
+
+
+    <!-- Button to Explore Gallery -->
+    <a href="#" style="display: inline-flex; align-items: center; text-align: center; padding: 10px 20px; background-color: #E51D1D; color: white; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 50px; border: none;">
+        Let's Explore Our Gallery
+        <span style="margin-left: 8px;">&#8594;</span> <!-- Right Arrow -->
+    </a>
+    
+</section>
+<!-- Book a Lab Visit Section -->
+<section id="book-visit-section" class="booking-section" style="padding: 20px 0; background-color: #1960ca; text-align: center;">
+    <!-- Form Frame -->
+    <div class="form-frame" style="background-color: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: 0 auto;">
+        <form>
+            <div class="container">
+                <h2 style="font-size: 22px; font-weight: bold; color: darkblue; margin-bottom: 15px;">Book a Lab Visit</h2>
+                <p style="font-size: 14px; color: darkblue; margin-bottom: 20px;">Thank you for your interest in our laboratory. Please fill out the form below to schedule your visit.</p>
+
+                <table style="width: 100%; border-collapse: collapse;">
+                    <!-- Name Row -->
+                    <tr>
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Name:</th>
+                        <td style="padding: 8px;">
+                            <input type="text" name="name" placeholder="Enter your name" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                        </td>
+                    </tr>
+                    <!-- Email Row -->
+                    <tr>
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Email:</th>
+                        <td style="padding: 8px;">
+                            <input type="email" name="email" placeholder="Enter your email" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                        </td>
+                    </tr>
+                    <!-- Phone Row -->
+                    <tr>
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Phone:</th>
+                        <td style="padding: 8px;">
+                            <input type="tel" name="phone" placeholder="Enter your phone number" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                        </td>
+                    </tr>
+                    <!-- Select Service Row -->
+                    <tr>
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Service:</th>
+                        <td style="padding: 8px;">
+                            <select id="service" name="service" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;" onchange="toggleSubService()">
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="blood-count">Blood Count Test</option>
+                                <option value="diabetic">Diabetic Test</option>
+                                <option value="kidney-function">Kidney Function Test</option>
+                                <option value="liver-function">Liver Function Test</option>
+                                <option value="lipid-profile">Lipid Profile Test</option>
+                                <option value="hormones">Hormones Test</option>
+                                <option value="urine-test">Urine Test</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Blood Count Sub-Service Row (Initially Hidden) -->
+                    <tr id="blood-count-section" style="display: none;">
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Blood Count Test:</th>
+                        <td style="padding: 8px;">
+                            <select id="blood-count-options" name="blood-count-options" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                                <option value="" disabled selected>Select a Blood Count Test</option>
+                                <option value="wbc">Total WBC Count</option>
+                                <option value="neutrophils">Neutrophils</option>
+                                <option value="lymphocytes">Lymphocytes</option>
+                                <option value="eosinophils">Eosinophils</option>
+                                <option value="monocytes">Monocytes</option>
+                                <option value="basophils">Basophils</option>
+                                <option value="haemoglobin">Haemoglobin</option>
+                                <option value="hct">Hct</option>
+                                <option value="rbc">Fasting Total RBC Count</option>
+                                <option value="mcv">MCV</option>
+                                <option value="mch">MCH</option>
+                                <option value="mchc">MCHC</option>
+                                <option value="platelet">Platelet count</option>
+                                <option value="esr">ESR</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Diabetic Test Sub-Service Row (Initially Hidden) -->
+                    <tr id="diabetic-section" style="display: none;">
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Diabetic Test:</th>
+                        <td style="padding: 8px;">
+                            <select id="diabetic-options" name="diabetic-options" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                                <option value="" disabled selected>Select a Diabetic Test</option>
+                                <option value="plasma-glucose-fasting">Plasma Glucose Fasting</option>
+                                <option value="plasma-glucose-post-prandial">Plasma Glucose Post Prandial</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Kidney Function Tests Sub-Service Row (Initially Hidden) -->
+                    <tr id="kidney-function-section" style="display: none;">
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Kidney Function Test:</th>
+                        <td style="padding: 8px;">
+                            <select id="kidney-function-options" name="kidney-function-options" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                                <option value="" disabled selected>Select a Kidney Function Test</option>
+                                <option value="urea">Urea</option>
+                                <option value="creatinine">Creatinine</option>
+                                <option value="uric-acid">Uric Acid</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Liver Function Tests Sub-Service Row (Initially Hidden) -->
+                    <tr id="liver-function-section" style="display: none;">
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Liver Function Test:</th>
+                        <td style="padding: 8px;">
+                            <select id="liver-function-options" name="liver-function-options" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                                <option value="" disabled selected>Select a Liver Function Test</option>
+                                <option value="bilirubin-total">Bilirubin - Total</option>
+                                <option value="bilirubin-direct">Bilirubin - Direct</option>
+                                <option value="bilirubin-indirect">Bilirubin - Indirect</option>
+                                <option value="sgot">SGOT</option>
+                                <option value="sgpt">SGPT</option>
+                                <option value="alkaline-phosphatase">Alkaline Phosphatase</option>
+                                <option value="total-protein">Total Protein</option>
+                                <option value="albumin">Albumin</option>
+                                <option value="globulin">Globulin</option>
+                                <option value="alb-glb-ratio">Alb/Glb Ratio</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Lipid Profile Test Sub-Service Row (Initially Hidden) -->
+                    <tr id="lipid-profile-section" style="display: none;">
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Lipid Profile Test:</th>
+                        <td style="padding: 8px;">
+                            <select id="lipid-profile-options" name="lipid-profile-options" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                                <option value="" disabled selected>Select a Lipid Profile Test</option>
+                                <option value="total-cholesterol">Total Cholesterol</option>
+                                <option value="triglycerides">Triglycerides</option>
+                                <option value="hdl-cholesterol">HDL Cholesterol</option>
+                                <option value="ldl-cholesterol">LDL Cholesterol</option>
+                                <option value="vldl-cholesterol">VLDL Cholesterol</option>
+                                <option value="cho-hdl-ratio">CHO/HDL Ratio</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Hormones Test Sub-Service Row (Initially Hidden) -->
+                    <tr id="hormones-section" style="display: none;">
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Hormones Test:</th>
+                        <td style="padding: 8px;">
+                            <select id="hormones-options" name="hormones-options" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                                <option value="" disabled selected>Select a Hormones Test</option>
+                                <option value="thyroid-stimulating-hormone">Thyroid Stimulating Hormone</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Urine Test Sub-Service Row (Initially Hidden) -->
+                    <tr id="urine-test-section" style="display: none;">
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Urine Test:</th>
+                        <td style="padding: 8px;">
+                            <select id="urine-test-options" name="urine-test-options" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                                <option value="" disabled selected>Select a Urine Test</option>
+                                <option value="colour">Colour</option>
+                                <option value="sp-gravity">Specific Gravity</option>
+                                <option value="ph">pH</option>
+                                <option value="protein">Protein</option>
+                                <option value="glucose">Glucose</option>
+                                <option value="bilirubin">Bilirubin</option>
+                                <option value="urobilinogen">Urobilinogen</option>
+                                <option value="ketone">Ketone</option>
+                                <option value="nitrites">Nitrites</option>
+                                <option value="leucocytes">Leucocytes</option>
+                                <option value="rbc">RBCs</option>
+                                <option value="epithelial-cells">Epithelial Cells</option>
+                                <option value="cast">Cast</option>
+                                <option value="crystals">Crystals</option>
+                                <option value="bacteria">Bacteria</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Visiting Hours Row -->
+                    <tr>
+                        <th style="text-align: left; padding: 8px; color: darkblue; font-size: 12px;">Select Visiting Hours:</th>
+                        <td style="padding: 8px;">
+                            <select name="visiting-hours" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;">
+                                <option value="" disabled selected>Select Visiting Hour</option>
+                                <option value="9am-10am">9 AM - 10 AM</option>
+                                <option value="10am-11am">10 AM - 11 AM</option>
+                                <option value="11am-12pm">11 AM - 12 PM</option>
+                                <option value="12pm-1pm">12 PM - 1 PM</option>
+                                <option value="1pm-2pm">1 PM - 2 PM</option>
+                                <option value="2pm-3pm">2 PM - 3 PM</option>
+                                <option value="3pm-4pm">3 PM - 4 PM</option>
+                                <option value="4pm-5pm">4 PM - 5 PM</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="margin-top: 20px;">
+                    <button type="submit" style="background-color: #1960ca; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">
+                        Book a Visit
+                        <span style="margin-left: 8px;">&#8594;</span> <!-- Right Arrow -->
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- JavaScript to toggle visibility of sub-services -->
+<script>
+    function toggleSubService() {
+        const serviceSelect = document.getElementById("service");
+        const sections = {
+            "blood-count": "blood-count-section",
+            "diabetic": "diabetic-section",
+            "kidney-function": "kidney-function-section",
+            "liver-function": "liver-function-section",
+            "lipid-profile": "lipid-profile-section",
+            "hormones": "hormones-section",
+            "urine-test": "urine-test-section"
+        };
+
+        // Hide all sub-service sections first
+        Object.values(sections).forEach(section => {
+            document.getElementById(section).style.display = "none";
+        });
+
+        // Show the selected service sub-section
+        if (sections[serviceSelect.value]) {
+            document.getElementById(sections[serviceSelect.value]).style.display = "table-row";
+        }
+    }
+</script>
+
+
+
+            
+        </div>
+    </div>
+</section>
+
+<br>
+
+<section class="fixed-image-container">
+    <a href="https://g.co/kgs/6iiugFY" target="_blank">
+        <img src="images/Frame 16.png" alt="Fixed Image" style="width: 1000px; height: auto;">
+    </a>
+</section>
+
+
+
+
+<!-- Footer Section -->
+<footer style="background-color: #1960ca; color: white; padding: 40px 0;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <div class="row" style="display: flex; justify-content: space-between;">
+            <!-- Quick Contacts -->
+            <div class="column" style="flex: 1; padding: 10px;">
+                <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">Quick Contacts</h3>
+                <p style="font-size: 14px; margin-bottom: 8px;">Phone: 04872224170 , 04872332100</p>
+                <p style="font-size: 14px; margin-bottom: 8px;">Email: hygealab@gmail.com</p>
+                <p style="font-size: 14px;">Address: Sreelakshmi Building,Shornur Road Thiruvambadi Po Thrissur,Kerala,Pin ;680022</p>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="column" style="flex: 1; padding: 10px;">
+                <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">Useful Links</h3>
+                <ul style="list-style-type: none; padding: 0; font-size: 14px;">
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none;">Home</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none;">Services</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none;">About Us</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="column" style="flex: 1; padding: 10px;">
+                <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">Terms and Conditions</h3>
+                <ul style="list-style-type: none; padding: 0; font-size: 14px;">
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none;">Refund Policy</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none;">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+<!-- Footer Section -->
+<footer class="footer" style="background-color: #144a9a; padding: 50px 0; text-align: center; font-size: 14px; width: 100%; position: relative;">
+    <p style="margin: 0; color: white;">
+        &copy; 2024 Hygea Lab. All rights reserved. Powered by 
+        <a href="https://www.reontel.com/" target="_blank" style="color: inherit; text-decoration: underline;">Reon Technologies</a>.
+    </p>
+</footer>
+
+
+<script>
+    // JavaScript function to show or hide the blood count test dropdown
+    function toggleBloodCountDropdown() {
+        var serviceSelect = document.getElementById('service');
+        var bloodCountSection = document.getElementById('blood-count-section');
+
+        // Check if the selected service is 'Blood Count Test'
+        if (serviceSelect.value === 'blood-count') {
+            bloodCountSection.style.display = 'table-row'; // Show the blood count section
+        } else {
+            bloodCountSection.style.display = 'none'; // Hide the blood count section
+        }
+    }
+</script>
+
+</body>
+</html>
